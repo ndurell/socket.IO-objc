@@ -69,8 +69,6 @@
 		4AD96DF616808B7900D9E42D /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketIOTransportWebsocket.h; path = ../SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
 		4AD96DF716808B7900D9E42D /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketIOTransportWebsocket.m; path = ../SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
 		4AD96DF9168225FC00D9E42D /* SocketIOTransport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = SOURCE_ROOT; };
-		4AD96DFA16822DE300D9E42D /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = SOURCE_ROOT; };
-		4AD96DFB16822DE300D9E42D /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = SOURCE_ROOT; };
 		4ADCCB9D15790D760022990C /* SocketTesterARC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocketTesterARC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ADCCBA115790D760022990C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4ADCCBA315790D760022990C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -210,8 +208,6 @@
 				4AD96DF9168225FC00D9E42D /* SocketIOTransport.h */,
 				4AD96DF616808B7900D9E42D /* SocketIOTransportWebsocket.h */,
 				4AD96DF716808B7900D9E42D /* SocketIOTransportWebsocket.m */,
-				4AD96DFA16822DE300D9E42D /* SocketIOTransportXHR.h */,
-				4AD96DFB16822DE300D9E42D /* SocketIOTransportXHR.m */,
 				4ADCCBA815790D760022990C /* Supporting Files */,
 			);
 			path = SocketTesterARC;
@@ -379,6 +375,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocketTesterARC/SocketTesterARC-Prefix.pch";
 				INFOPLIST_FILE = "SocketTesterARC/SocketTesterARC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
@@ -395,6 +392,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocketTesterARC/SocketTesterARC-Prefix.pch";
 				INFOPLIST_FILE = "SocketTesterARC/SocketTesterARC-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)/usr/lib/system\"",
