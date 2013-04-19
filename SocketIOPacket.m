@@ -26,40 +26,12 @@
 
 @implementation SocketIOPacket
 
-@synthesize type, pId, name, ack, data, args, endpoint;
 
-- (id) init
-{
-    self = [super init];
-    if (self) {
-        _types = [NSArray arrayWithObjects: @"disconnect",
-                  @"connect",
-                  @"heartbeat",
-                  @"message",
-                  @"json",
-                  @"event",
-                  @"ack",
-                  @"error",
-                  @"noop",
-                  nil];
-    }
-    return self;
-}
-
-- (id) initWithType:(NSString *)packetType
+- (id) initWithType:(SocketIOPacketType)packetType
 {
     self = [self init];
     if (self) {
         self.type = packetType;
-    }
-    return self;
-}
-
-- (id) initWithTypeIndex:(int)index
-{
-    self = [self init];
-    if (self) {
-        self.type = [self typeForIndex:index];
     }
     return self;
 }
@@ -75,30 +47,30 @@
     }
 }
 
-- (NSNumber *) typeAsNumber
-{
-    NSUInteger index = [_types indexOfObject:self.type];
-    NSNumber *num = [NSNumber numberWithUnsignedInteger:index];
-    return num;
+- (NSString *)stringType {
+    switch(self.type) {
+        case SocketIOPacketTypeAck:
+            return @"ack";
+        case SocketIOPacketTypeDisconnect:
+            return @"disconnect";
+        case SocketIOPacketTypeConnect:
+            return @"connect";
+        case SocketIOPacketTypeMessage:
+            return @"message";
+        case SocketIOPacketTypeJson:
+            return @"json";
+        case SocketIOPacketTypeEvent:
+            return @"event";
+        case SocketIOPacketTypeError:
+            return @"error";
+        case SocketIOPacketTypeNoOp:
+            return @"noop";
+        case SocketIOPacketTypeHeartbeat:
+            return @"heartbeat";
+    }
+    return nil;
 }
 
-- (NSString *) typeForIndex:(int)index
-{
-    return [_types objectAtIndex:index];
-}
-
-- (void) dealloc
-{
-    _types = nil;
-    
-    type = nil;
-    pId = nil;
-    name = nil;
-    ack = nil;
-    data = nil;
-    args = nil;
-    endpoint = nil;
-}
 
 @end
 

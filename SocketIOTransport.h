@@ -29,9 +29,9 @@
 - (void) onDisconnect:(NSError*)error;
 - (void) onError:(NSError*)error;
 
-@property (nonatomic, readonly) NSString *host;
+@property (nonatomic, copy, readonly) NSString *host;
 @property (nonatomic, readonly) NSInteger port;
-@property (nonatomic, readonly) NSString *sid;
+@property (nonatomic, copy, readonly) NSString *sid;
 @property (nonatomic, readonly) NSTimeInterval heartbeatTimeout;
 @property (nonatomic) BOOL useSecure;
 
@@ -45,6 +45,6 @@
 - (BOOL) isReady;
 - (void) send:(NSString *)request;
 
-@property (nonatomic, unsafe_unretained) id <SocketIOTransportDelegate> delegate;
+@property (nonatomic, weak) id <SocketIOTransportDelegate> delegate;
 
 @end

@@ -32,6 +32,12 @@
 #define DEBUGLOG(...)
 #endif
 
+@interface SocketIOTransportWebsocket ()
+
+@property(nonatomic,strong) SRWebSocket *webSocket;
+
+@end
+
 static NSString* kInsecureSocketURL = @"ws://%@/socket.io/1/websocket/%@";
 static NSString* kSecureSocketURL = @"wss://%@/socket.io/1/websocket/%@";
 static NSString* kInsecureSocketPortURL = @"ws://%@:%d/socket.io/1/websocket/%@";
@@ -39,57 +45,53 @@ static NSString* kSecureSocketPortURL = @"wss://%@:%d/socket.io/1/websocket/%@";
 
 @implementation SocketIOTransportWebsocket
 
-@synthesize delegate;
-
-- (id) initWithDelegate:(id<SocketIOTransportDelegate>)delegate_
+- (id) initWithDelegate:(id<SocketIOTransportDelegate>)delegate
 {
     self = [super init];
     if (self) {
-        self.delegate = delegate_;
+        self.delegate = delegate;
     }
     return self;
 }
 
 - (BOOL) isReady
 {
-    return _webSocket.readyState == SR_OPEN;
+    return self.webSocket.readyState == SR_OPEN;
 }
 
 - (void) open
 {
     NSString *urlStr;
     NSString *format;
-    if (delegate.port) {
-        format = delegate.useSecure ? kSecureSocketPortURL : kInsecureSocketPortURL;
-        urlStr = [NSString stringWithFormat:format, delegate.host, delegate.port, delegate.sid];
+    if (self.delegate.port) {
+        format = self.delegate.useSecure ? kSecureSocketPortURL : kInsecureSocketPortURL;
+        urlStr = [NSString stringWithFormat:format, self.delegate.host, self.delegate.port, self.delegate.sid];
     }
     else {
-        format = delegate.useSecure ? kSecureSocketURL : kInsecureSocketURL;
-        urlStr = [NSString stringWithFormat:format, delegate.host, delegate.sid];
+        format = self.delegate.useSecure ? kSecureSocketURL : kInsecureSocketURL;
+        urlStr = [NSString stringWithFormat:format, self.delegate.host, self.delegate.sid];
     }
     NSURL *url = [NSURL URLWithString:urlStr];
     
-    _webSocket = nil;
-    
-    _webSocket = [[SRWebSocket alloc] initWithURL:url];
-    _webSocket.delegate = self;
+    self.webSocket = [[SRWebSocket alloc] initWithURL:url];
+    self.webSocket.delegate = self;
     DEBUGLOG(@"Opening %@", url);
-    [_webSocket open];
+    [self.webSocket open];
 }
 
 - (void) dealloc
 {
-    [_webSocket setDelegate:nil];
+    self.webSocket.delegate = nil;
 }
 
 - (void) close
 {
-    [_webSocket close];
+    [self.webSocket close];
 }
 
 - (void) send:(NSString*)request
 {
-    [_webSocket send:request];
+    [self.webSocket send:request];
 }
 
 
@@ -99,7 +101,7 @@ static NSString* kSecureSocketPortURL = @"wss://%@:%d/socket.io/1/websocket/%@";
 
 - (void) webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
 {
-    [delegate onData:message];
+    [self.delegate onData:message];
 }
 
 - (void) webSocketDidOpen:(SRWebSocket *)webSocket
@@ -111,7 +113,7 @@ static NSString* kSecureSocketPortURL = @"wss://%@:%d/socket.io/1/websocket/%@";
 {
     DEBUGLOG(@"Socket failed with error ... %@", [error localizedDescription]);
     // Assuming this resulted in a disconnect
-    [delegate onDisconnect:error];
+    [self.delegate onDisconnect:error];
 }
 
 - (void) webSocket:(SRWebSocket *)webSocket
@@ -120,7 +122,7 @@ static NSString* kSecureSocketPortURL = @"wss://%@:%d/socket.io/1/websocket/%@";
           wasClean:(BOOL)wasClean
 {
     DEBUGLOG(@"Socket closed. %@", reason);
-    [delegate onDisconnect:[NSError errorWithDomain:SocketIOError
+    [self.delegate onDisconnect:[NSError errorWithDomain:SocketIOError
                                                code:SocketIOWebSocketClosed
                                            userInfo:nil]];
 }

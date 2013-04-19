@@ -23,10 +23,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SocketIOPacket.h"
 #import "SocketIOTransport.h"
 
+
 @class SocketIO;
-@class SocketIOPacket;
 
 typedef void(^SocketIOCallback)(id argsData);
 
@@ -59,45 +60,16 @@ typedef enum {
 @end
 
 
-@interface SocketIO : NSObject <NSURLConnectionDelegate, SocketIOTransportDelegate>
-{
-    NSString *_host;
-    NSInteger _port;
-    NSString *_sid;
-    NSString *_endpoint;
-    NSDictionary *_params;
-    
-    __unsafe_unretained id<SocketIODelegate> _delegate;
-    
-    NSObject <SocketIOTransport> *_transport;
-    
-    BOOL _isConnected;
-    BOOL _isConnecting;
-    BOOL _useSecure;
-    
-    NSURLConnection *_handshake;
-    
-    // heartbeat
-    NSTimeInterval _heartbeatTimeout;
-    NSTimer *_timeout;
-    
-    NSMutableArray *_queue;
-    
-    // acknowledge
-    NSMutableDictionary *_acks;
-    NSInteger _ackCount;
-    
-    // http request
-    NSMutableData *_httpRequestData;
+@interface SocketIO : NSObject <NSURLConnectionDelegate, SocketIOTransportDelegate> {
 }
 
-@property (nonatomic, readonly) NSString *host;
+@property (nonatomic, copy, readonly) NSString *host;
 @property (nonatomic, readonly) NSInteger port;
-@property (nonatomic, readonly) NSString *sid;
+@property (nonatomic, copy, readonly) NSString *sid;
 @property (nonatomic, readonly) NSTimeInterval heartbeatTimeout;
 @property (nonatomic) BOOL useSecure;
 @property (nonatomic, readonly) BOOL isConnected, isConnecting;
-@property (nonatomic, unsafe_unretained) id<SocketIODelegate> delegate;
+@property (nonatomic, weak) id<SocketIODelegate> delegate;
 
 - (id) initWithDelegate:(id<SocketIODelegate>)delegate;
 - (void) connectToHost:(NSString *)host onPort:(NSInteger)port;

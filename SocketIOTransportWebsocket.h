@@ -26,11 +26,10 @@
 #import "SRWebSocket.h"
 #import "SocketIOTransport.h"
 
-@interface SocketIOTransportWebsocket : NSObject <SocketIOTransport, SRWebSocketDelegate>
-{
-    SRWebSocket *_webSocket;
+@interface SocketIOTransportWebsocket : NSObject <SocketIOTransport, SRWebSocketDelegate> {
+
 }
 
-@property (nonatomic, unsafe_unretained) id <SocketIOTransportDelegate> delegate;
+@property (nonatomic, weak) id <SocketIOTransportDelegate> delegate;
 
 @end

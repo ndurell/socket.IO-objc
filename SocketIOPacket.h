@@ -23,19 +23,23 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SocketIOPacket : NSObject
-{
-    NSString *type;
-    NSString *pId;
-    NSString *ack;
-    NSString *name;
-    NSString *data;
-    NSArray *args;
-    NSString *endpoint;
-    NSArray *_types;
+typedef enum SocketIOPacketType {
+    SocketIOPacketTypeDisconnect = 0,
+    SocketIOPacketTypeConnect = 1,
+    SocketIOPacketTypeHeartbeat = 2,
+    SocketIOPacketTypeMessage = 3,
+    SocketIOPacketTypeJson = 4,
+    SocketIOPacketTypeEvent = 5,
+    SocketIOPacketTypeAck = 6,
+    SocketIOPacketTypeError = 7,
+    SocketIOPacketTypeNoOp = 8,
+} SocketIOPacketType;
+
+@interface SocketIOPacket : NSObject {
 }
 
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, readonly) NSString *stringType;
+@property (nonatomic, assign) SocketIOPacketType type;
 @property (nonatomic, copy) NSString *pId;
 @property (nonatomic, copy) NSString *ack;
 @property (nonatomic, copy) NSString *name;
@@ -43,10 +47,7 @@
 @property (nonatomic, copy) NSString *endpoint;
 @property (nonatomic, copy) NSArray *args;
 
-- (id) initWithType:(NSString *)packetType;
-- (id) initWithTypeIndex:(int)index;
+- (id) initWithType:(SocketIOPacketType)packetType;
 - (id) dataAsJSON;
-- (NSNumber *) typeAsNumber;
-- (NSString *) typeForIndex:(int)index;
 
 @end
