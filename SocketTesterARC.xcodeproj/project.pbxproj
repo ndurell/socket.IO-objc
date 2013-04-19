@@ -9,24 +9,11 @@
 /* Begin PBXBuildFile section */
 		4A444FA11589E28800B44ABB /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A444FA01589E28800B44ABB /* libicucore.dylib */; };
 		4A444FA31589E29500B44ABB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A444FA21589E29500B44ABB /* Security.framework */; };
-		4A44536C1589EE5900B44ABB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453541589EE5900B44ABB /* NSObject+SBJson.m */; };
-		4A44536D1589EE5900B44ABB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453571589EE5900B44ABB /* SBJsonParser.m */; };
-		4A44536E1589EE5900B44ABB /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453591589EE5900B44ABB /* SBJsonStreamParser.m */; };
-		4A44536F1589EE5900B44ABB /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44535B1589EE5900B44ABB /* SBJsonStreamParserAccumulator.m */; };
-		4A4453701589EE5900B44ABB /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44535D1589EE5900B44ABB /* SBJsonStreamParserAdapter.m */; };
-		4A4453711589EE5900B44ABB /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44535F1589EE5900B44ABB /* SBJsonStreamParserState.m */; };
-		4A4453721589EE5900B44ABB /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453611589EE5900B44ABB /* SBJsonStreamWriter.m */; };
-		4A4453731589EE5900B44ABB /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453631589EE5900B44ABB /* SBJsonStreamWriterAccumulator.m */; };
-		4A4453741589EE5900B44ABB /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453651589EE5900B44ABB /* SBJsonStreamWriterState.m */; };
-		4A4453751589EE5900B44ABB /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453671589EE5900B44ABB /* SBJsonTokeniser.m */; };
-		4A4453761589EE5900B44ABB /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453691589EE5900B44ABB /* SBJsonUTF8Stream.m */; };
-		4A4453771589EE5900B44ABB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44536B1589EE5900B44ABB /* SBJsonWriter.m */; };
 		4A4453811589EE9100B44ABB /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 4A44537A1589EE9100B44ABB /* base64.c */; };
 		4A4453821589EE9100B44ABB /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A44537D1589EE9100B44ABB /* NSData+SRB64Additions.m */; };
 		4A4453831589EE9100B44ABB /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4453801589EE9100B44ABB /* SRWebSocket.m */; };
 		4AD96DF41680853E00D9E42D /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96DF31680853E00D9E42D /* SocketIOPacket.m */; };
 		4AD96DF816808B7900D9E42D /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96DF716808B7900D9E42D /* SocketIOTransportWebsocket.m */; };
-		4AD96DFC16822DE300D9E42D /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD96DFB16822DE300D9E42D /* SocketIOTransportXHR.m */; };
 		4ADCCBA215790D760022990C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADCCBA115790D760022990C /* UIKit.framework */; };
 		4ADCCBA415790D760022990C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADCCBA315790D760022990C /* Foundation.framework */; };
 		4ADCCBA615790D760022990C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ADCCBA515790D760022990C /* CoreGraphics.framework */; };
@@ -308,25 +295,12 @@
 				4ADCCBAE15790D760022990C /* main.m in Sources */,
 				4ADCCBB215790D760022990C /* AppDelegate.m in Sources */,
 				4ADCCBB515790D760022990C /* ViewController.m in Sources */,
-				4A44536C1589EE5900B44ABB /* NSObject+SBJson.m in Sources */,
-				4A44536D1589EE5900B44ABB /* SBJsonParser.m in Sources */,
-				4A44536E1589EE5900B44ABB /* SBJsonStreamParser.m in Sources */,
-				4A44536F1589EE5900B44ABB /* SBJsonStreamParserAccumulator.m in Sources */,
-				4A4453701589EE5900B44ABB /* SBJsonStreamParserAdapter.m in Sources */,
-				4A4453711589EE5900B44ABB /* SBJsonStreamParserState.m in Sources */,
-				4A4453721589EE5900B44ABB /* SBJsonStreamWriter.m in Sources */,
-				4A4453731589EE5900B44ABB /* SBJsonStreamWriterAccumulator.m in Sources */,
-				4A4453741589EE5900B44ABB /* SBJsonStreamWriterState.m in Sources */,
-				4A4453751589EE5900B44ABB /* SBJsonTokeniser.m in Sources */,
-				4A4453761589EE5900B44ABB /* SBJsonUTF8Stream.m in Sources */,
-				4A4453771589EE5900B44ABB /* SBJsonWriter.m in Sources */,
 				4A4453811589EE9100B44ABB /* base64.c in Sources */,
 				4A4453821589EE9100B44ABB /* NSData+SRB64Additions.m in Sources */,
 				4A4453831589EE9100B44ABB /* SRWebSocket.m in Sources */,
 				C9E391A215E2A1B00004693A /* SocketIOJSONSerialization.m in Sources */,
 				4AD96DF41680853E00D9E42D /* SocketIOPacket.m in Sources */,
 				4AD96DF816808B7900D9E42D /* SocketIOTransportWebsocket.m in Sources */,
-				4AD96DFC16822DE300D9E42D /* SocketIOTransportXHR.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
