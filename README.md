@@ -1,21 +1,12 @@
 # Socket.IO / Objective C Library (ARC version)
 
-  Interface to communicate between Objective C and [Socket.IO](http://socket.io/)
-  with the help of websockets or [Long-Polling](http://en.wikipedia.org/wiki/Push_technology#Long_polling). Originally based on fpotter's [socketio-cocoa](https://github.com/fpotter/socketio-cocoa)
+  Fork of [socket.IO-objc](https://github.com/pkyeck/socket.IO-objc). Basically the same thing just removed stuff 
+  I don't need for my sprojects. Interface to communicate between Objective C and [Socket.IO](http://socket.io/)
+  with the help of websockets. Originally based on fpotter's [socketio-cocoa](https://github.com/fpotter/socketio-cocoa)
   it uses other libraries/classes like
 
    * [SocketRocket](https://github.com/square/SocketRocket)
   Look [here](https://github.com/square/SocketRocket#installing-ios) for further instructions how to use/install SocketRocket.
-
-  JSON serialization can be provided by SBJson (json-framework), JSONKit or by Foundation in OS X 10.7/iOS 5.0.  These are selected at runtime and introduce no source-level dependencies.
-   * [json-framework](https://github.com/stig/json-framework/) (optional)
-   * [JSONKit](https://github.com/johnezang/JSONKit/) (optional)
-
-
-## Non-ARC version
-
-If you're old school - there's still the [non-ARC version](https://github.com/pkyeck/socket.IO-objc/tree/non-arc) for you.
-This version (the non-ARC one) is out-of-date and won't be maintained any further (at least not by me).
 
 ## Usage
 
